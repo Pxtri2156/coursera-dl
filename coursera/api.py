@@ -315,12 +315,17 @@ class OnDemandCourseMaterialItemsV1(object):
         @rtype: OnDemandCourseMaterialItems
         """
 
-        dom = get_page(session, OPENCOURSE_ONDEMAND_COURSE_MATERIALS,
+        # dom = get_page(session, OPENCOURSE_ONDEMAND_COURSE_MATERIALS,
+        #                json=True,
+        #                class_name=course_name)
+        # return OnDemandCourseMaterialItemsV1(
+        #     dom['linked']['onDemandCourseMaterialItems.v1'])
+        dom = get_page(session, OPENCOURSE_ONDEMAND_COURSE_MATERIALS_V2,
                        json=True,
                        class_name=course_name)
         return OnDemandCourseMaterialItemsV1(
-            dom['linked']['onDemandCourseMaterialItems.v1'])
-
+            dom['linked']['onDemandCourseMaterialItems.v2'])
+    
     def get(self, lesson_id):
         """
         Return lecture by lesson ID.
